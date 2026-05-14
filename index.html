@@ -198,17 +198,47 @@
   .btn-cream {
     display: inline-block;
     padding: 13px 34px;
-    background: var(--cream);
-    color: var(--black);
+    background: transparent;
+    color: var(--gold-light);
+    border: 1px solid var(--gold);
     font-size: 10px;
     letter-spacing: 0.24em;
     text-transform: uppercase;
     text-decoration: none;
     font-weight: 500;
-    transition: background 0.3s;
+    transition: all 0.35s;
+    position: relative;
+    overflow: hidden;
   }
 
-  .btn-cream:hover { background: var(--cream-dark); }
+  .btn-cream::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-100%);
+    transition: transform 0.35s ease;
+    z-index: -1;
+  }
+
+  .btn-cream:hover { color: var(--black); }
+  .btn-cream:hover::before { transform: translateX(0); }
+
+  .btn-white {
+    display: inline-block;
+    padding: 13px 34px;
+    background: white;
+    color: var(--black);
+    border: 1px solid white;
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.35s;
+  }
+
+  .btn-white:hover { background: var(--cream); border-color: var(--cream); }
 
   /* SECTION SHARED */
   .section-wrap {
@@ -1020,9 +1050,9 @@
       <strong>PatternsShift helps you see the pattern<br>before it plays out again.</strong>
     </p>
     <div style="display:flex; gap:14px; flex-wrap:wrap;" class="fade-up d4">
-      <a href="#workbooks" class="btn-outline">Explore Self-Work Tools</a>
-      <a href="#substack" class="btn-cream">Join on Substack</a>
-      <a href="#subscribe" class="btn-gold-sm" style="margin-top:8px;">Get Your Free Burnout Diagnostic →</a>
+      <a href="#workbooks" class="btn-outline">Explore <strong style="font-weight:700;">Self-Work Tools</strong></a>
+      <a href="#substack" class="btn-cream">Join on <strong style="font-weight:700;">Substack</strong></a>
+      <a href="#subscribe" class="btn-white" style="margin-top:8px;">Get Your Free <strong style="font-weight:700;">Burnout Diagnostic</strong> →</a>
     </div>
   </div>
 </section>
